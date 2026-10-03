@@ -1,0 +1,193 @@
+# otomi カテゴリ定義
+#
+# [グループID]
+# name = "表示名"
+# [グループID.items]
+# サブカテゴリID = { name = "表示名", prompts = ["英語の説明", ...] }
+#
+# - prompts は CLAP のテキストエンコーダに渡す英語の説明文です (CLAP は英語のみ対応)。
+#   複数書くと平均した埋め込みで判定するので、言い換えを並べると精度が上がりやすくなります。
+# - カテゴリの追加・変更は再インデックス不要です (音声の埋め込みは保存済みのため)。
+# - カスタマイズする場合はこのファイルを data/categories.toml にコピーして編集してください。
+#   data/ 側にファイルがあればそちらが優先されます。
+
+[ui]
+name = "UI・システム音"
+[ui.items]
+click   = { name = "クリック・決定", prompts = ["a short UI click", "button click interface sound", "menu select confirm blip"] }
+cancel  = { name = "キャンセル・戻る", prompts = ["UI cancel sound", "a soft descending interface blip", "back button sound"] }
+cursor  = { name = "カーソル移動", prompts = ["a tiny cursor move tick", "menu cursor sound"] }
+notify  = { name = "通知・アラート", prompts = ["notification chime", "alert ding", "message received sound"] }
+error   = { name = "エラー・警告", prompts = ["error buzzer", "wrong answer buzz", "warning beep"] }
+success = { name = "成功・クリア", prompts = ["success jingle", "level complete fanfare", "positive achievement chime"] }
+coin    = { name = "コイン・アイテム取得", prompts = ["coin pickup sound", "item get sparkle", "collecting a coin in a video game"] }
+
+[electronic]
+name = "電子音・SF"
+[electronic.items]
+beep    = { name = "ビープ・電子音", prompts = ["electronic beep", "sine wave beep tone", "digital bleep"] }
+laser   = { name = "レーザー・ビーム", prompts = ["sci-fi laser gun", "laser beam zap", "pew pew blaster"] }
+glitch  = { name = "グリッチ・ノイズ", prompts = ["digital glitch noise", "data corruption glitch", "static noise burst"] }
+sweep   = { name = "スイープ・ライザー", prompts = ["rising synth sweep", "riser build up", "whoosh synth swell"] }
+robot   = { name = "ロボット・メカ", prompts = ["robot servo movement", "mechanical robot sound", "sci-fi mech"] }
+retro   = { name = "8bit・レトロゲーム", prompts = ["8-bit chiptune sound effect", "retro video game jump sound", "square wave arcade blip"] }
+power   = { name = "起動・停止・パワー", prompts = ["power up sound", "power down machine", "energy charging up"] }
+
+[impact]
+name = "衝撃・打撃"
+[impact.items]
+punch   = { name = "パンチ・殴打", prompts = ["punch hit", "fist punching a body", "fight punch impact"] }
+kick    = { name = "キック・蹴り", prompts = ["kick impact", "kicking hit sound"] }
+hit     = { name = "ヒット・インパクト", prompts = ["heavy impact hit", "cinematic boom hit", "deep impact thud"] }
+slap    = { name = "ビンタ・叩く", prompts = ["slap", "hand slap on skin", "smack"] }
+fall    = { name = "落下・ドサッ", prompts = ["body falling to the ground", "heavy object dropping thud"] }
+crash   = { name = "破壊・崩壊", prompts = ["crash and destruction", "debris collapse", "smashing destruction"] }
+glass   = { name = "ガラス", prompts = ["glass shattering", "breaking glass", "glass clink"] }
+metal   = { name = "金属音", prompts = ["metal clang", "metal hit", "metallic impact"] }
+wood    = { name = "木の音", prompts = ["wood knock", "wooden hit", "wood crack"] }
+
+[battle]
+name = "武器・戦闘"
+[battle.items]
+sword     = { name = "剣・刀", prompts = ["sword slash", "sword unsheathing", "blade swing and clash"] }
+gun       = { name = "銃声", prompts = ["gunshot", "pistol firing", "rifle shot"] }
+machinegun = { name = "マシンガン", prompts = ["machine gun burst", "automatic rifle fire"] }
+reload    = { name = "リロード・装填", prompts = ["gun reload", "cocking a gun", "magazine insert"] }
+explosion = { name = "爆発", prompts = ["explosion", "bomb blast", "big explosion boom"] }
+arrow     = { name = "弓矢", prompts = ["arrow shot from bow", "arrow whizzing"] }
+whoosh    = { name = "風切り・スウィング", prompts = ["whoosh swing", "fast swish through air", "whoosh transition"] }
+armor     = { name = "鎧・装備", prompts = ["armor clanking", "chainmail movement"] }
+
+[magic]
+name = "魔法・ファンタジー"
+[magic.items]
+spell    = { name = "魔法詠唱・発動", prompts = ["magic spell cast", "fantasy magic sound", "mystical spell"] }
+sparkle  = { name = "キラキラ", prompts = ["magical sparkle shimmer", "twinkle chime", "fairy dust sparkle"] }
+heal     = { name = "回復", prompts = ["healing magic", "soft heal chime", "restoration spell"] }
+fire_m   = { name = "炎魔法", prompts = ["fire spell burst", "fireball whoosh"] }
+ice      = { name = "氷魔法", prompts = ["ice magic crystallizing", "freezing ice spell"] }
+thunder_m = { name = "雷魔法", prompts = ["electric lightning zap spell", "electric shock"] }
+teleport = { name = "ワープ・転移", prompts = ["teleport warp sound", "portal opening"] }
+
+[human]
+name = "人の声・動作"
+[human.items]
+scream   = { name = "悲鳴・叫び", prompts = ["a person screaming", "scream of terror", "shout"] }
+laugh    = { name = "笑い声", prompts = ["people laughing", "laughter", "giggle"] }
+cheer    = { name = "歓声・拍手", prompts = ["crowd cheering", "applause", "clapping hands"] }
+crowd    = { name = "群衆・ガヤ", prompts = ["crowd murmur", "people talking in background", "walla chatter"] }
+speech   = { name = "話し声", prompts = ["a person speaking", "male voice talking", "female voice speaking"] }
+breath   = { name = "息・呼吸", prompts = ["breathing", "heavy breath", "sigh"] }
+cough    = { name = "咳・くしゃみ", prompts = ["coughing", "sneezing"] }
+grunt    = { name = "うめき・掛け声", prompts = ["effort grunt", "pain groan", "battle cry"] }
+footstep = { name = "足音", prompts = ["footsteps walking", "footsteps on wooden floor", "running footsteps"] }
+cloth    = { name = "衣擦れ", prompts = ["cloth rustling", "fabric movement"] }
+eat      = { name = "食べる・飲む", prompts = ["eating crunch", "drinking gulp", "chewing"] }
+baby     = { name = "赤ちゃん・子供", prompts = ["baby crying", "children playing"] }
+
+[animal]
+name = "動物"
+[animal.items]
+dog    = { name = "犬", prompts = ["dog barking", "dog growl", "puppy whine"] }
+cat    = { name = "猫", prompts = ["cat meowing", "cat purring", "cat hiss"] }
+bird   = { name = "鳥", prompts = ["birds chirping", "bird song", "crow cawing"] }
+insect = { name = "虫", prompts = ["insects buzzing", "cicadas", "crickets chirping at night"] }
+farm   = { name = "家畜", prompts = ["cow mooing", "rooster crowing", "horse neigh", "pig oink", "sheep bleat"] }
+wild   = { name = "猛獣", prompts = ["lion roar", "wolf howling", "bear growl"] }
+water_animal = { name = "水辺の生き物", prompts = ["frog croaking", "seagulls", "whale song"] }
+monster = { name = "モンスター・クリーチャー", prompts = ["monster roar", "creature growl", "dragon roar"] }
+
+[nature]
+name = "自然・天候"
+[nature.items]
+rain     = { name = "雨", prompts = ["rain falling", "heavy rain", "rain on a roof"] }
+thunder  = { name = "雷", prompts = ["thunder rumble", "thunderstorm", "lightning strike crack"] }
+wind     = { name = "風", prompts = ["wind blowing", "howling wind", "gentle breeze"] }
+water    = { name = "水・川", prompts = ["stream of water", "river flowing", "water splash", "water drip"] }
+ocean    = { name = "海・波", prompts = ["ocean waves", "waves crashing on the beach"] }
+fire     = { name = "火・焚き火", prompts = ["fire crackling", "campfire burning", "flames roaring"] }
+forest   = { name = "森・山", prompts = ["forest ambience", "quiet woods with birds"] }
+earth    = { name = "地響き・岩", prompts = ["rumbling earthquake", "rocks falling", "rock grinding"] }
+
+[ambience]
+name = "環境音・アンビエンス"
+[ambience.items]
+city     = { name = "街・雑踏", prompts = ["city street ambience", "busy downtown traffic ambience"] }
+indoor   = { name = "室内", prompts = ["room tone", "quiet indoor ambience", "office ambience"] }
+cafe     = { name = "店・カフェ", prompts = ["cafe ambience", "restaurant background noise"] }
+school   = { name = "学校", prompts = ["school classroom ambience", "school bell"] }
+station  = { name = "駅・空港", prompts = ["train station ambience", "airport terminal announcement"] }
+night    = { name = "夜", prompts = ["night ambience", "quiet night outdoors"] }
+dungeon  = { name = "洞窟・ダンジョン", prompts = ["cave ambience with dripping water", "dark dungeon drone"] }
+festival = { name = "祭り・イベント", prompts = ["festival crowd", "fireworks"] }
+
+[vehicle]
+name = "乗り物"
+[vehicle.items]
+car       = { name = "自動車", prompts = ["car engine", "car passing by", "car horn"] }
+brake     = { name = "ブレーキ・衝突", prompts = ["tire screech", "car crash", "brakes squealing"] }
+motorcycle = { name = "バイク", prompts = ["motorcycle engine revving"] }
+train     = { name = "電車", prompts = ["train passing", "train on railway tracks", "subway train"] }
+plane     = { name = "飛行機・ヘリ", prompts = ["airplane flying overhead", "jet engine", "helicopter"] }
+boat      = { name = "船", prompts = ["boat engine", "ship horn"] }
+siren     = { name = "サイレン", prompts = ["police siren", "ambulance siren", "fire truck siren"] }
+bicycle   = { name = "自転車", prompts = ["bicycle bell", "bicycle riding"] }
+spaceship = { name = "宇宙船", prompts = ["spaceship engine hum", "sci-fi spacecraft flyby"] }
+
+[household]
+name = "生活音・日用品"
+[household.items]
+door     = { name = "ドア", prompts = ["door opening", "door closing", "door slam", "door creak"] }
+knock    = { name = "ノック", prompts = ["knocking on a door"] }
+bell     = { name = "チャイム・ベル", prompts = ["doorbell", "bell ringing", "handbell"] }
+phone    = { name = "電話", prompts = ["telephone ringing", "smartphone vibration", "phone ringtone"] }
+kitchen  = { name = "キッチン・料理", prompts = ["cooking sizzle", "chopping vegetables", "pots and pans clatter", "boiling water"] }
+water_h  = { name = "水回り", prompts = ["toilet flush", "water tap running", "shower"] }
+paper    = { name = "紙・本", prompts = ["paper rustling", "page turning", "writing with a pen"] }
+keyboard = { name = "キーボード・PC", prompts = ["typing on a keyboard", "mouse click", "computer fan"] }
+clock    = { name = "時計", prompts = ["clock ticking", "alarm clock ringing"] }
+switch   = { name = "スイッチ・ボタン", prompts = ["light switch click", "mechanical switch"] }
+camera   = { name = "カメラ", prompts = ["camera shutter"] }
+zipper   = { name = "ジッパー・袋", prompts = ["zipper", "plastic bag rustling"] }
+coins_h  = { name = "お金・レジ", prompts = ["coins jingling", "cash register"] }
+keys     = { name = "鍵", prompts = ["keys jingling", "lock and unlock"] }
+
+[machine]
+name = "機械・工具"
+[machine.items]
+engine   = { name = "モーター・駆動音", prompts = ["electric motor hum", "machine running", "engine idle"] }
+tools    = { name = "工具", prompts = ["power drill", "hammering a nail", "saw cutting wood", "chainsaw"] }
+factory  = { name = "工場・産業", prompts = ["factory machinery", "industrial ambience", "steam hiss"] }
+gears    = { name = "歯車・からくり", prompts = ["gears turning", "clockwork mechanism", "ratchet"] }
+alarm    = { name = "警報・アラーム", prompts = ["alarm sounding", "fire alarm", "warning alarm siren"] }
+air      = { name = "空調・換気", prompts = ["air conditioner hum", "ventilation fan"] }
+
+[comedy]
+name = "コミカル・演出"
+[comedy.items]
+cartoon  = { name = "コミカル・アニメ", prompts = ["cartoon boing", "comedic slide whistle", "funny cartoon sound"] }
+pop      = { name = "ポン・ポップ", prompts = ["cork pop", "bubble pop", "light popping sound"] }
+drumroll = { name = "ドラムロール・ジャン", prompts = ["drum roll", "rimshot", "ta-da"] }
+quiz     = { name = "正解・不正解", prompts = ["quiz show correct answer chime", "quiz show wrong answer buzzer"] }
+tension  = { name = "ショック・ドーン", prompts = ["dramatic sting", "shocked dramatic hit", "suspense stinger"] }
+
+[horror]
+name = "ホラー・不気味"
+[horror.items]
+drone    = { name = "不穏ドローン", prompts = ["dark ominous drone", "eerie atmosphere", "horror ambience"] }
+creak    = { name = "きしみ", prompts = ["creaking wood", "creaky floorboard"] }
+ghost    = { name = "幽霊・怪異", prompts = ["ghostly whisper", "spooky ghost wail"] }
+heartbeat = { name = "心臓音", prompts = ["heartbeat", "thumping heart"] }
+jumpscare = { name = "ジャンプスケア", prompts = ["horror jump scare stinger", "scary loud screech"] }
+
+[music]
+name = "楽器・音楽"
+[music.items]
+piano    = { name = "ピアノ", prompts = ["piano", "piano notes"] }
+guitar   = { name = "ギター", prompts = ["acoustic guitar", "electric guitar"] }
+drums    = { name = "ドラム・打楽器", prompts = ["drum beat", "percussion", "taiko drum"] }
+strings  = { name = "弦楽器", prompts = ["violin", "string ensemble", "cello"] }
+brass    = { name = "管楽器", prompts = ["trumpet", "horn fanfare", "flute", "saxophone"] }
+japanese = { name = "和楽器", prompts = ["japanese koto", "shamisen", "shakuhachi flute", "japanese temple bell"] }
+jingle   = { name = "ジングル・短いBGM", prompts = ["short musical jingle", "musical logo sting"] }
+music_loop = { name = "BGM・音楽", prompts = ["background music", "a song with melody", "music loop"] }
