@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>otomi — 効果音ブラウザ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">otomi<span>音見</span></div>
+    <div class="search">
+      <input id="q" type="search" autocomplete="off"
+             placeholder="意味検索（英語推奨: door slam, rain on window …／日本語はカテゴリ名・ファイル名）">
+      <input id="name" type="search" autocomplete="off" placeholder="ファイル名で絞り込み">
+    </div>
+    <label class="vol" title="音量">🔊<input id="volume" type="range" min="0" max="1" step="0.01" value="0.8"></label>
+    <label class="toggle" title="選択したら自動で再生"><input id="autoplay" type="checkbox" checked> 自動再生</label>
+    <button id="status" class="status" title="設定・フォルダ管理">…</button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar">
+      <div class="side-head">
+        <label class="toggle small"><input id="hideEmpty" type="checkbox" checked> 0件を隠す</label>
+      </div>
+      <ul id="tree" class="tree"></ul>
+    </nav>
+
+    <main class="main">
+      <div class="result-head">
+        <div id="desc" class="desc"></div>
+        <div id="count" class="count"></div>
+      </div>
+      <div id="list" class="list" tabindex="0"></div>
+      <div id="more" class="more hidden"><button id="moreBtn">さらに読み込む</button></div>
+      <div id="empty" class="empty hidden"></div>
+    </main>
+  </div>
+
+  <div id="settings" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h2>設定</h2>
+        <button class="icon" data-close>✕</button>
+      </div>
+      <section>
+        <h3>音声フォルダ</h3>
+        <ul id="roots" class="roots"></ul>
+        <form id="addRoot" class="row">
+          <input id="rootPath" placeholder="フォルダのパス (例: D:\SE\効果音ラボ)" required>
+          <button type="submit">追加して解析</button>
+        </form>
+      </section>
+      <section>
+        <h3>解析</h3>
+        <div id="progressText" class="muted"></div>
+        <div class="progress"><div id="progressBar"></div></div>
+        <div class="row">
+          <button id="scanBtn">再スキャン（新規・変更のみ）</button>
+          <button id="retryBtn" class="ghost">失敗したファイルを再試行</button>
+          <button id="stopBtn" class="ghost">中断</button>
+        </div>
+      </section>
+      <section>
+        <h3>カテゴリ定義</h3>
+        <p class="muted">定義ファイル: <code id="catFile"></code><br>
+          編集後に「再読み込み」で即反映されます（再解析は不要）。</p>
+        <button id="reloadCats">カテゴリを再読み込み</button>
+      </section>
+      <section>
+        <h3>モデル</h3>
+        <p id="modelInfo" class="muted"></p>
+      </section>
+      <section>
+        <h3>キーボード操作</h3>
+        <p class="muted">↑↓ 選択 / Space 再生・停止 / S 似た音を探す / F お気に入り / E エクスプローラーで表示 / / 検索欄へ</p>
+      </section>
+    </div>
+  </div>
+
+  <div id="catMenu" class="catmenu hidden"></div>
+  <div id="toast" class="toast hidden"></div>
+  <audio id="audio" preload="none"></audio>
+  <script src="app.js"></script>
+</body>
+</html>
